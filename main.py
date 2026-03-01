@@ -53,7 +53,7 @@ async def show_data():
     return items
 
 
-
+@app.post("/euron/update")
 async def update_euron_data(name:str, updated_name:str):
     result = euron_data.update_one(
         {"name": name},
