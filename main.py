@@ -54,6 +54,14 @@ async def show_data():
 
 
 
+async def update_euron_data(name:str, updated_name:str):
+    result = euron_data.update_one(
+        {"name": name},
+        {"$set": {"name": updated_name}}
+    )
+    if result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="Euron data not found")
+    return {"message": "Euron data updated successfully"}
 
 
 
